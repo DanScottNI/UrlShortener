@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlBitlyClone.Tests", "UrlBitlyClone.Tests\UrlBitlyClone.Tests.csproj", "{4A7827E6-C1B5-42E3-AD2C-C40D6D4E56A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1DCC089D-827E-42F5-B71B-003245D294A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{9FEF4480-3F8A-4ACF-AC70-217ADA5946A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlBitlyClone.DatabaseMigrations", "UrlBitlyClone.DatabaseMigrations\UrlBitlyClone.DatabaseMigrations.csproj", "{207FAEBB-F83D-4343-B94F-997F554B73D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{8B6A3D4D-183B-422B-9682-AA74CB34209E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlBitlyClone.Core", "UrlBitlyClone.Core\UrlBitlyClone.Core.csproj", "{74F00DAB-D832-427E-96C8-D2271EEF69BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{DF1FC5E9-FB16-4AFF-BC47-0A4DE8337781}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlBitlyClone", "UrlBitlyClone\UrlBitlyClone.csproj", "{E871B27A-5386-45C3-99D2-E0CBDA78C10E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A7827E6-C1B5-42E3-AD2C-C40D6D4E56A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7827E6-C1B5-42E3-AD2C-C40D6D4E56A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7827E6-C1B5-42E3-AD2C-C40D6D4E56A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7827E6-C1B5-42E3-AD2C-C40D6D4E56A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{207FAEBB-F83D-4343-B94F-997F554B73D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{207FAEBB-F83D-4343-B94F-997F554B73D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{207FAEBB-F83D-4343-B94F-997F554B73D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{207FAEBB-F83D-4343-B94F-997F554B73D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F00DAB-D832-427E-96C8-D2271EEF69BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F00DAB-D832-427E-96C8-D2271EEF69BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F00DAB-D832-427E-96C8-D2271EEF69BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F00DAB-D832-427E-96C8-D2271EEF69BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E871B27A-5386-45C3-99D2-E0CBDA78C10E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E871B27A-5386-45C3-99D2-E0CBDA78C10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E871B27A-5386-45C3-99D2-E0CBDA78C10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E871B27A-5386-45C3-99D2-E0CBDA78C10E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A7827E6-C1B5-42E3-AD2C-C40D6D4E56A3} = {1DCC089D-827E-42F5-B71B-003245D294A1}
+		{207FAEBB-F83D-4343-B94F-997F554B73D5} = {9FEF4480-3F8A-4ACF-AC70-217ADA5946A5}
+		{74F00DAB-D832-427E-96C8-D2271EEF69BF} = {8B6A3D4D-183B-422B-9682-AA74CB34209E}
+		{E871B27A-5386-45C3-99D2-E0CBDA78C10E} = {DF1FC5E9-FB16-4AFF-BC47-0A4DE8337781}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {121C829D-2C31-49B1-B4AB-77AF7CF1379E}
+	EndGlobalSection
+EndGlobal
