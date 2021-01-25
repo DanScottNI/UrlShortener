@@ -1,13 +1,13 @@
-﻿@{
+﻿@model HomeIndexModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 
-
-<form  asp-action="">
-
+<form asp-action="Index" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="Url"></label>
+        <span asp-validation-for="Url"></span>
+        <input asp-for="Url" type="text" class="form-control-lg" />
+    </div>
 </form>
