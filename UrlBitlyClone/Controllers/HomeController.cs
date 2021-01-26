@@ -12,6 +12,7 @@ namespace UrlBitlyClone.Controllers
     /// The home controller of the application.
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;
@@ -40,6 +41,13 @@ namespace UrlBitlyClone.Controllers
             return this.View(model);
         }
 
+        /// <summary>
+        /// HTTP POST method for creating a new short form URL.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>
+        /// A Redirect to the Details page, or if there's some kind of validation error, back to the homepage.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(HomeIndexModel model)
@@ -49,12 +57,18 @@ namespace UrlBitlyClone.Controllers
                 return this.View(model);
             }
 
-            UrlShortening url = this.urlShortenerService.Create(model.Url);
+            UrlShortForm url = this.urlShortenerService.Create(model.Url);
 
             this.logger.LogInformation("Logged as the following short-form URL {ShortenedUrl}", url.ShortenedUrl);
             return this.RedirectToAction("Details", "Url", new { url = url.ShortenedUrl });
         }
 
+        /// <summary>
+        /// General error page.
+        /// </summary>
+        /// <returns>
+        /// The standard error page.
+        /// </returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -5,7 +5,12 @@ using UrlBitlyClone.Models.Url;
 
 namespace UrlBitlyClone.Controllers
 {
+    /// <summary>
+    /// Controller for URL actions.
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [Route("")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class UrlController : Controller
     {
         private readonly IUrlShortenerService urlShortenerService;
@@ -22,6 +27,13 @@ namespace UrlBitlyClone.Controllers
             this.configuration = configuration;
         }
 
+        /// <summary>
+        /// Displays the information about the specified URL.
+        /// </summary>
+        /// <param name="url">The short-form URL.</param>
+        /// <returns>
+        /// An HTML page containing the URL's information.
+        /// </returns>
         [HttpGet("details/{url}")]
         public IActionResult Details(string url)
         {
@@ -35,12 +47,20 @@ namespace UrlBitlyClone.Controllers
                     FullUrl = obj.FullUrl,
                     ShortenedUrl = obj.ShortenedUrl,
                 };
+
                 return this.View(model);
             }
 
             return this.RedirectToAction("Unknown");
         }
 
+        /// <summary>
+        /// Redirects the user to the specified URL using the short-form address.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>
+        /// Redirects the user to the real URL behind the short-form one. Or if the short-form one doesn't exist, then to the Unknown action.
+        /// </returns>
         [HttpGet("{url}")]
         public IActionResult RedirectToUrl(string url)
         {
@@ -54,6 +74,12 @@ namespace UrlBitlyClone.Controllers
             return this.RedirectToAction("Unknown");
         }
 
+        /// <summary>
+        /// Displays the Unknown URL page.
+        /// </summary>
+        /// <returns>
+        /// A View containing the Unknown URL page.
+        /// </returns>
         [HttpGet("unknown")]
         public IActionResult Unknown()
         {

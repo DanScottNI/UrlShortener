@@ -28,16 +28,16 @@ namespace UrlBitlyClone.Core.Context
         /// <summary>
         /// Gets or sets the URL shortenings.
         /// </summary>
-        public virtual DbSet<UrlShortening> UrlShortenings { get; set; }
+        public virtual DbSet<UrlShortForm> UrlShortForms { get; set; }
 
         /// <inheritdoc/>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
-            modelBuilder.Entity<UrlShortening>(entity =>
+            modelBuilder.Entity<UrlShortForm>(entity =>
             {
-                entity.ToTable("UrlShortening", "Url");
+                entity.ToTable("UrlShortForm", "Url");
 
                 entity.Property(e => e.FullUrl)
                     .IsRequired()

@@ -1,8 +1,5 @@
-using System;
-using FluentMigrator.Runner;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -10,6 +7,9 @@ using Serilog.Sinks.MSSqlServer;
 
 namespace UrlBitlyClone
 {
+    /// <summary>
+    /// The main program class.
+    /// </summary>
     public class Program
     {
         /// <summary>Defines the entry point of the application.</summary>

@@ -9,11 +9,11 @@
 <p class="lead">Shrink the size of your URLs!</p>
 
 <form asp-action="Index" asp-controller="Home">
-    
     <div class="form-group">
         <label asp-for="Url"></label>
-        <span asp-validation-for="Url"></span>
-        <input asp-for="Url" type="text" class="form-control-lg" />
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <input asp-for="Url" type="text" class="form-control-lg form-control" />
+        <span asp-validation-for="Url" class="text-danger"></span>
     </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

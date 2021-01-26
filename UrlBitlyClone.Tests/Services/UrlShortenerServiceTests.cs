@@ -30,7 +30,7 @@ namespace UrlBitlyClone.Tests.Services
             obj.ShortenedUrl.Should().NotBeNullOrWhiteSpace();
 
             // Did this actually get saved?
-            var saved = this.objectMother.GetFirstEntity<UrlShortening>();
+            var saved = this.objectMother.GetFirstEntity<UrlShortForm>();
             saved.Should().NotBeNull();
             saved.FullUrl.Should().Be(Url);
         }
@@ -39,10 +39,10 @@ namespace UrlBitlyClone.Tests.Services
         public void Get()
         {
             // Arrange
-            var url = objectMother.WithUrls(1).GetFirstEntity<UrlShortening>();
+            var url = objectMother.WithUrls(1).GetFirstEntity<UrlShortForm>();
 
             // Act
-            UrlShortening obj = urlShortenerService.GetByShortUrl(url.ShortenedUrl);
+            UrlShortForm obj = urlShortenerService.GetByShortUrl(url.ShortenedUrl);
             
             // Assert
             obj.Should().NotBeNull();

@@ -30,7 +30,7 @@ namespace UrlBitlyClone.Core.Web.Controllers
         public void Details()
         {
             // Arrange
-            var url = objectMother.WithUrls(1).GetFirstEntity<UrlShortening>();
+            var url = objectMother.WithUrls(1).GetFirstEntity<UrlShortForm>();
 
             // Act
             IActionResult result = controller.Details(url.ShortenedUrl);
@@ -57,7 +57,7 @@ namespace UrlBitlyClone.Core.Web.Controllers
         public void RedirectToUrl()
         {
             // Arrange
-            var url = objectMother.WithUrls(1).GetFirstEntity<UrlShortening>();
+            var url = objectMother.WithUrls(1).GetFirstEntity<UrlShortForm>();
 
             // Act
             IActionResult result = controller.RedirectToUrl(url.ShortenedUrl);

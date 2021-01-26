@@ -3,14 +3,14 @@
 namespace UrlBitlyClone.Core.Context
 {
     /// <summary>
-    /// Entity for the UrlShortening table.
+    /// Entity for the UrlShortForm table.
     /// </summary>
-    public class UrlShortening
+    public class UrlShortForm
     {
         /// <summary>
         /// Gets or sets the URL shortening identifier.
         /// </summary>
-        public long UrlShorteningId { get; set; }
+        public long UrlShortFormId { get; set; }
 
         /// <summary>
         /// Gets or sets the full URL.

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using UrlBitlyClone.Core.Context;
 using UrlBitlyClone.Core.Enums;
 using UrlBitlyClone.Core.Extensions;
@@ -52,10 +53,7 @@ namespace UrlBitlyClone
             services.AddUrlShortenerLibraries(hashTypes);
 
             // Set up DB connection string
-            services.AddDbContext<UrlBitlyCloneContext>(options =>
-            {
-                options.UseSqlServer(defaultConnection);
-            });
+            services.AddDbContext<UrlBitlyCloneContext>(options => options.UseSqlServer(defaultConnection));
 
             // If migrations are set to run in process, inject the action filter that runs them on every request.
             if (hasInProcessMigrations)
@@ -67,6 +65,11 @@ namespace UrlBitlyClone
             {
                 services.AddControllersWithViews();
             }
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UrlShortener", Version = "v1" });
+            });
         }
 
         /// <summary>
@@ -79,6 +82,9 @@ namespace UrlBitlyClone
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "URL Shortener v1"));
             }
             else
             {

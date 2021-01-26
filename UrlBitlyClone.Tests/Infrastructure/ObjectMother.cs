@@ -27,7 +27,7 @@ namespace UrlBitlyClone.Tests.Infrastructure
             return Context.Set<T>().FirstOrDefault();
         }
 
-        public ObjectMother WithUrls(int size, Func<IListBuilder<UrlShortening>, IOperable<UrlShortening>> actions = null) => With(size, null, actions);
+        public ObjectMother WithUrls(int size, Func<IListBuilder<UrlShortForm>, IOperable<UrlShortForm>> actions = null) => With(size, null, actions);
 
         internal ObjectMother With<T>(int size, Func<IListBuilder<T>, IOperable<T>> setupAction = null, Func<IListBuilder<T>, IOperable<T>> overrideAction = null) where T : class
         {

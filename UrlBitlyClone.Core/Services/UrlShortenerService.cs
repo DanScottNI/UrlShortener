@@ -29,7 +29,7 @@ namespace UrlBitlyClone.Core.Services
         }
 
         /// <inheritdoc/>
-        public UrlShortening Create(string url)
+        public UrlShortForm Create(string url)
         {
             int retryCount = 0;
             bool saveFailed = false;
@@ -40,7 +40,7 @@ namespace UrlBitlyClone.Core.Services
                 {
                     try
                     {
-                        UrlShortening urlEntity = new UrlShortening
+                        UrlShortForm urlEntity = new UrlShortForm
                         {
                             FullUrl = url,
                             ShortenedUrl = this.stringHashService.HashUrl(url),
@@ -64,9 +64,9 @@ namespace UrlBitlyClone.Core.Services
         }
 
         /// <inheritdoc/>
-        public UrlShortening GetByShortUrl(string shortenedUrl)
+        public UrlShortForm GetByShortUrl(string shortenedUrl)
         {
-            return this.context.UrlShortenings.FirstOrDefault(x => x.ShortenedUrl == shortenedUrl);
+            return this.context.UrlShortForms.FirstOrDefault(x => x.ShortenedUrl == shortenedUrl);
         }
     }
 }
