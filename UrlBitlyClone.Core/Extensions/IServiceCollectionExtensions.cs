@@ -5,23 +5,34 @@ using UrlBitlyClone.Core.Services.Interfaces;
 
 namespace UrlBitlyClone.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods for quickly adding the necessary services to the DI container.
+    /// </summary>
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddUrlShortenerLibraries(this IServiceCollection serviceProvider, StringHashTypes stringHashTypes)
+        /// <summary>
+        /// Adds the services to the DI container.
+        /// </summary>
+        /// <param name="serviceCollection">The <see cref="IServiceCollection"/> to inject the services into.</param>
+        /// <param name="stringHashTypes">The type of hashing to use.</param>
+        /// <returns>
+        /// An <see cref="IServiceCollection"/> with the services added.
+        /// </returns>
+        public static IServiceCollection AddUrlShortenerLibraries(this IServiceCollection serviceCollection, StringHashTypes stringHashTypes)
         {
-            serviceProvider.AddScoped<IUrlShortenerService, UrlShortenerService>();
+            serviceCollection.AddScoped<IUrlShortenerService, UrlShortenerService>();
 
             switch (stringHashTypes)
             {
                 case StringHashTypes.TruncatedMd5:
-                    serviceProvider.AddScoped<IStringHashService, Md5StringHashService>();
+                    serviceCollection.AddScoped<IStringHashService, Md5StringHashService>();
                     break;
                 case StringHashTypes.None:
-                    serviceProvider.AddScoped<IStringHashService, NoneStringHashService>();
+                    serviceCollection.AddScoped<IStringHashService, NoneStringHashService>();
                     break;
             }
 
-            return serviceProvider;
+            return serviceCollection;
         }
     }
 }

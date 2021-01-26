@@ -6,7 +6,6 @@ namespace UrlBitlyClone.Core.Context
 {
     public partial class UrlBitlyCloneContext : DbContext
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBitlyCloneContext"/> class.
         /// </summary>
@@ -44,6 +43,8 @@ namespace UrlBitlyClone.Core.Context
                 entity.Property(e => e.ShortenedUrl)
                     .IsRequired()
                     .IsUnicode(false);
+
+                entity.HasIndex(e => e.ShortenedUrl).IsUnique();
             });
         }
     }

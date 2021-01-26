@@ -2,6 +2,7 @@
 
 namespace UrlBitlyClone.DatabaseMigrations.Migrations
 {
+    [TimestampedMigration(2021, 01, 25, 17, 01)]
     public class _20210125_AddSerilog : Migration
     {
         public override void Down()

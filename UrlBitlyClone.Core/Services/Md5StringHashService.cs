@@ -12,10 +12,13 @@ namespace UrlBitlyClone.Core.Services
         /// <inheritdoc/>
         public string HashUrl(string url)
         {
+            string prefix = RandomNumberGenerator.GetInt32(1, 10000).ToString();
+            string newUrl = $"{prefix}{url}";
+
             // Use input string to calculate MD5 hash
             using (MD5 md5 = MD5.Create())
             {
-                byte[] inputBytes = Encoding.ASCII.GetBytes(url);
+                byte[] inputBytes = Encoding.ASCII.GetBytes(newUrl);
                 byte[] hashBytes = md5.ComputeHash(inputBytes);
 
                 // Convert the byte array to hexadecimal string

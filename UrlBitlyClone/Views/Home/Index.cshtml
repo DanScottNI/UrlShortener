@@ -4,10 +4,16 @@
 }
 
 
+<h1>Url shortening service</h1>
+
+<p class="lead">Shrink the size of your URLs!</p>
+
 <form asp-action="Index" asp-controller="Home">
+    
     <div class="form-group">
         <label asp-for="Url"></label>
         <span asp-validation-for="Url"></span>
         <input asp-for="Url" type="text" class="form-control-lg" />
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
