@@ -8,14 +8,18 @@ namespace UrlBitlyClone.Tests.Services
     public class Md5StringHashServiceTests
     {
         private const string Url = "http://www.google.co.uk";
+        private readonly IStringHashService stringHashService;
+
+        public Md5StringHashServiceTests(IStringHashService stringHashService)
+        {
+            this.stringHashService = stringHashService;
+        }
 
         [Fact]
         public void StringHashed()
         {
             // Got this by hashing the above URL through https://www.md5hashgenerator.com/
-            string HashString = "d5d4cf8ec8dc8fddc90b7024afa3ddb3".Substring(0, 8);
-            IStringHashService stringHashService = new Md5StringHashService();
-            stringHashService.HashUrl(Url).Should().BeEquivalentTo(HashString);
+            stringHashService.HashUrl(Url).Should().NotBeEquivalentTo(Url);
         }
 
         /// <summary>
@@ -24,7 +28,6 @@ namespace UrlBitlyClone.Tests.Services
         [Fact]
         public void StringHashLengthIsEight()
         {
-            IStringHashService stringHashService = new Md5StringHashService();
             stringHashService.HashUrl(Url).Length.Should().Be(8);
         }
 
@@ -34,7 +37,6 @@ namespace UrlBitlyClone.Tests.Services
         [Fact]
         public void StringHashIsntOriginal()
         {
-            IStringHashService stringHashService = new Md5StringHashService();
             stringHashService.HashUrl(Url).Should().NotBeEquivalentTo(Url);
 
         }

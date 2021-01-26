@@ -1,12 +1,13 @@
-﻿using System;
-using System.Security.Cryptography;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using UrlBitlyClone.Core.Context;
 using UrlBitlyClone.Core.Services.Interfaces;
 
 namespace UrlBitlyClone.Core.Services
 {
+    /// <summary>
+    /// Implementation of the <see cref="IUrlShortenerService"/>.
+    /// </summary>
     public class UrlShortenerService : IUrlShortenerService
     {
         private readonly UrlBitlyCloneContext context;

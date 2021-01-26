@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace UrlBitlyClone.Infrastructure.ActionFilters
 {
-
     /// <summary>
     /// Updates the database schema if it needs to be updated.
     /// </summary>

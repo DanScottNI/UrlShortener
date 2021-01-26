@@ -4,6 +4,9 @@
 
 namespace UrlBitlyClone.Core.Context
 {
+    /// <summary>
+    /// Entity Framework Core database context.
+    /// </summary>
     public partial class UrlBitlyCloneContext : DbContext
     {
         /// <summary>
