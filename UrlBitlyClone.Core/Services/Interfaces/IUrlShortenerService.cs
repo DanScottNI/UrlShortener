@@ -15,5 +15,14 @@ namespace UrlBitlyClone.Core.Services.Interfaces
         /// An <see cref="UrlShortening"/> object that represents the newly shortened URL entity.
         /// </returns>
         UrlShortening Create(string url);
+
+        /// <summary>
+        /// Gets the URL information by its short form url.
+        /// </summary>
+        /// <param name="shortenedUrl">The shortened URL.</param>
+        /// <returns>
+        /// An <see cref="UrlShortening"/> object that matches the short form url.
+        /// </returns>
+        UrlShortening GetByShortUrl(string shortenedUrl);
     }
 }

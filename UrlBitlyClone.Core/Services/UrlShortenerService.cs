@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using UrlBitlyClone.Core.Context;
 using UrlBitlyClone.Core.Services.Interfaces;
@@ -60,6 +61,12 @@ namespace UrlBitlyClone.Core.Services
             while (saveFailed);
 
             return null;
+        }
+
+        /// <inheritdoc/>
+        public UrlShortening GetByShortUrl(string shortenedUrl)
+        {
+            return this.context.UrlShortenings.FirstOrDefault(x => x.ShortenedUrl == shortenedUrl);
         }
     }
 }
