@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+using System;
+using System.Security.Cryptography;
 using System.Text;
 using UrlBitlyClone.Core.Services.Interfaces;
 
@@ -13,7 +14,7 @@ namespace UrlBitlyClone.Core.Services
         public string HashUrl(string url)
         {
             string prefix = RandomNumberGenerator.GetInt32(1, 10000).ToString();
-            string newUrl = $"{prefix}{url}";
+            string newUrl = $"{Environment.TickCount}{prefix}{url}";
 
             // Use input string to calculate MD5 hash
             using (MD5 md5 = MD5.Create())
